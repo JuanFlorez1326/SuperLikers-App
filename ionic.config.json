@@ -1,0 +1,7 @@
+{
+  "name": "superlikers-mobile",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
