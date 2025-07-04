@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  baseUrl: 'https://api.superlikerslabs.com/v1',
+  apiKey: '32e608447ff50d5b6760c335ffe87262'
 };
 
 /*

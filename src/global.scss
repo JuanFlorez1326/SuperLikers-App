@@ -40,3 +40,12 @@
   --ion-background-color: #1e3c72;
   --ion-text-color: #ffff;
 }
+
+ion-checkbox {
+  --checkbox-background: #7894D2;
+  --checkbox-background-checked: #7894D2;
+}
+
+ion-checkbox::part(container) {
+  border: 2px solid #7894D2;
+}
