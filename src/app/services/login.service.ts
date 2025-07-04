@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { LoginResponse } from '../interfaces/login-response.interface';
+import { LoginResponse, Participant } from '../interfaces/login-response.interface';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -26,7 +26,15 @@ export class LoginService {
       },
     };
 
-    return this.http.post<LoginResponse>(`${this.env.baseUrl}/microsite/sessions/login`, body, { headers });
+    return this.http.post<LoginResponse>(`${this.env.proxyUrl}${this.env.baseUrl}/microsite/sessions/login`, body, { headers });
+  }
+
+  public getUserInfo(): Participant | null {
+    const user = localStorage.getItem('user');
+    if (user) {
+      return JSON.parse(user);
+    }
+    return null;
   }
 
 }

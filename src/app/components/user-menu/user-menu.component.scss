@@ -1,0 +1,29 @@
+.user-menu {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;    
+
+    .user-info {
+        display: flex;
+        flex-direction: column;
+
+        select {
+            border-radius: 30px;
+            padding: 5px;
+            background-color: #134A85;
+            border: none;
+            position: relative;
+            right: 2px;
+        }
+    }
+
+    .user-logo {
+        width: 100px;
+        padding: 10px;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+}
