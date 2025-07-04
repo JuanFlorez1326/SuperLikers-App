@@ -1,0 +1,44 @@
+<ion-content [fullscreen]="true">
+  <div class="login-container">
+    <div class="ion-text-center login-logo">
+      <img src="assets/img/logo.png" alt="Logo">
+    </div>
+
+    <div class="ion-text-center">
+      <p><strong>¡Bienvenido/a Modelo Para Ganar</strong></p>
+      <span>Ingresa tus datos:</span>
+    </div>
+
+    <form>
+      <label class="ion-text-start">Número de usuario *</label>
+      <input fill="outline" placeholder="Número de usuario"/>
+
+      <label>Contraseña *</label>
+      <input placeholder="Contraseña"/>
+
+      <div class="ion-text-end forgot-pwd">
+        <span>¿Olvidaste tu contraseña?</span>
+      </div>
+
+      <div class="login-chekboxes">
+        <ion-checkbox labelPlacement="end">
+          He leído y acepto <a>Términos y condiciones</a>
+        </ion-checkbox>
+        <ion-checkbox labelPlacement="end">
+          He leído y acepto el <a>Aviso de privacidad</a>
+        </ion-checkbox>
+      </div>
+
+      <div class="ion-text-center actions-login">
+        <ion-button shape="round" expand="block" class="btn btn-login">Iniciar sesión</ion-button>
+        <ion-button shape="round" expand="block" class="btn btn-supervisor">Entrar como supervisor</ion-button>
+        
+        <div class="login-help">
+          <span>¿Necesitas ayuda con tu registro?</span>
+          <ion-icon name="logo-whatsapp"></ion-icon>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</ion-content>
