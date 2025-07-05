@@ -6,15 +6,14 @@ import { addIcons } from 'ionicons';
 import { logoWhatsapp } from 'ionicons/icons';
 import { LoginService } from 'src/app/services/login.service';
 import { LoginResponse } from 'src/app/interfaces/login-response.interface';
-import { Router } from '@angular/router';
-
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
   standalone: true,
-  imports: [IonContent, CommonModule, IonCheckbox, IonButton, IonIcon, ReactiveFormsModule ]
+  imports: [IonContent, CommonModule, IonCheckbox, IonButton, IonIcon, ReactiveFormsModule, RouterLink ]
 })
 export class LoginPage implements OnInit {
 

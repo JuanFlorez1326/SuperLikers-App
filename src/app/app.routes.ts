@@ -14,7 +14,11 @@ export const routes: Routes = [
     canActivate: [authGuard]
   },
   {
+    path: 'register',
+    loadComponent: () => import('./pages/register/register.page').then( m => m.RegisterPage)
+  },
+  {
     path: '**',
     redirectTo: 'login'
-  },
+  }
 ];
