@@ -16,7 +16,7 @@ export class KpisService {
 
   public user = this.loginService.getUserInfo();
 
-  public getKpis(): Observable<KpisResponse[]> {
+  public getKpis(): Observable<KpisResponse> {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${this.env.apiKey}`
     });
@@ -32,7 +32,7 @@ export class KpisService {
       }  
     }; 
 
-    return this.http.post<KpisResponse[]>(`${this.env.proxyUrl}${this.env.baseUrl}/entries/index`, body, { headers });
+    return this.http.post<KpisResponse>(`${this.env.proxyUrl}${this.env.baseUrl}/entries/index`, body, { headers });
   }
 
 }

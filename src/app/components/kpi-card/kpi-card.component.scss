@@ -1,0 +1,110 @@
+.kpis-container {
+    background-color: #214180;
+    border: 2px solid #3356a3;
+    border-radius: 20px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    .kpis-info {
+        display: flex;
+        flex-direction: column;
+
+        .kpi-filter {
+            display: flex;
+            justify-content: end;
+            align-items: center;
+            margin-bottom: 20px;
+
+            span {
+                color: #7794d1;
+                margin-right: 10px;
+            }
+
+            select {
+                padding: 3px;
+                border-radius: 10px;
+                border: none;
+                background-color: #FFF;
+                color: #3356a3;
+                width: 120px;
+            }
+        }
+
+        .kpi-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #e0b412;
+            margin-bottom: 20px;
+        }
+
+        .kpi-des-1 {
+            color: #FFF;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .kpi-des-2 {
+            color: #7794d1;
+        }
+    }
+}
+
+.kpis-indicators {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0a2440;
+    border-radius: 10px;
+    flex-wrap: wrap;
+
+    .indicator {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 120px;
+        height: 120px;
+        margin: 10px;
+        border-radius: 50%;
+        color: #000000;
+
+        &.indicator-1 {
+            background-color: #7794d1;
+        }
+
+        &.indicator-2 {
+            background-color: #a9f5eb;
+        }
+
+        &.indicator-3 {
+            background-color: #ff6969;
+        }
+
+        &.indicator-4 {
+            background-color: #ffb805;
+        }
+
+        p {
+            margin: 0;
+            font-size: 1.1rem;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        span {
+            text-align: center;
+            margin-top: 5px;
+        }
+    }
+}
+
+ion-range {
+  --bar-background: #082340;
+  --bar-background-active: #73bf22;
+  --bar-height: 8px;
+  --bar-border-radius: 8px;
+  --knob-background: #73bf22;
+  --knob-size: 40px;
+  --pin-background: #73bf22;
+  --pin-color: #FFF;
+}
