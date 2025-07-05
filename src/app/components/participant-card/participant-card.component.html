@@ -1,0 +1,19 @@
+<ion-card color="secondary">
+  <ion-card-header>
+    <ion-card-title>{{ participant().name | titlecase }}</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <div>
+      <strong>Email: </strong> <span>{{ participant().email }}</span>
+    </div>
+    <div>
+      <strong>Código del Cliente: </strong> <span>{{ participant().uid }}</span>
+    </div>
+    <div>
+      <strong>Estado: </strong> <span>{{  participant().state }}</span>
+    </div>
+    <div>
+      <strong>Campaña: </strong> <span>4u</span>
+    </div>
+  </ion-card-content>
+</ion-card>

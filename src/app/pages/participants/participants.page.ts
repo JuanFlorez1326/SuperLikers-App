@@ -1,0 +1,37 @@
+import { Component, inject, OnInit, signal } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardContent, IonCardTitle } from '@ionic/angular/standalone';
+import { RouterLink } from '@angular/router';
+import { ParticipantsService } from 'src/app/services/participants.service';
+import { AllParticipants, ParticipantList } from 'src/app/interfaces/participants-response.interface';
+import { ParticipantCardComponent } from "../../components/participant-card/participant-card.component";
+
+@Component({
+  selector: 'app-participants',
+  templateUrl: './participants.page.html',
+  styleUrls: ['./participants.page.scss'],
+  standalone: true,
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, RouterLink, ParticipantCardComponent]
+})
+export class ParticipantsPage implements OnInit {
+
+  private participantService = inject(ParticipantsService);
+
+  public allParticipants = signal<ParticipantList[]>([]);
+
+  ngOnInit() {
+    this.getParticipants();
+  }
+
+  public getParticipants(): void {
+    this.participantService.getParticipants().subscribe({
+      next: (response: AllParticipants) => {
+        response.data.participants.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
+        this.allParticipants.set(response.data.participants);
+      },
+      error: (error) => {
+        console.error('Error fetching participants:', error);
+      }
+    });
+  }
+}
