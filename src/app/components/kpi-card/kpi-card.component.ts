@@ -1,6 +1,5 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { KpisService } from 'src/app/services/kpis.service';
-import { KpisResponse } from 'src/app/interfaces/kpis-response.interface';
 
 @Component({
   selector: 'app-kpi-card',
@@ -10,7 +9,6 @@ import { KpisResponse } from 'src/app/interfaces/kpis-response.interface';
 export class KpiCardComponent {
 
   private kpisService = inject(KpisService);
-  public kpis = signal<KpisResponse[]>([]);
 
   ngOnInit(): void {
     this.getKpis();
@@ -19,7 +17,7 @@ export class KpiCardComponent {
   public getKpis(): void {
     this.kpisService.getKpis().subscribe({
       next: (response) => {
-        this.kpis.set(response);
+        console.log('KPI Response:', response);
       }, error: (error) => {
         console.error('Error fetching KPIs:', error);
       }
