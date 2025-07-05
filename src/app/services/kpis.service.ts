@@ -1,9 +1,10 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
-import { KpisResponse } from '../interfaces/kpis-response.interface';
 import { Observable } from 'rxjs';
 import { LoginService } from './auth.service';
+import { HttpClient } from '@angular/common/http';
+import { inject, Injectable } from '@angular/core';
+import { HeaderHelper } from '../helpers/header-helper';
+import { environment } from 'src/environments/environment';
+import { KpisResponse } from '../interfaces/kpis-response.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -17,9 +18,7 @@ export class KpisService {
   public user = this.loginService.getUserInfo();
 
   public getKpis(): Observable<KpisResponse> {
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${this.env.apiKey}`
-    });
+    const headers = HeaderHelper.getHeaders();
 
     const body = {
       campaign: "4u",

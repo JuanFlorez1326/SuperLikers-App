@@ -1,8 +1,9 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
+import { HeaderHelper } from '../helpers/header-helper';
 import { environment } from 'src/environments/environment';
 import { AllParticipants } from '../interfaces/participants-response.interface';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,9 +14,7 @@ export class ParticipantsService {
   private env = environment;
 
   public getParticipants(): Observable<AllParticipants> {
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${this.env.apiKey}`
-    });
+    const headers = HeaderHelper.getHeaders();
 
     const body = {
       campaign: "4u",
@@ -27,5 +26,4 @@ export class ParticipantsService {
 
     return this.http.post<AllParticipants>(`${this.env.proxyUrl}${this.env.baseUrl}/participants/index`, body, { headers })
   }
-
 }

@@ -1,11 +1,12 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
-import { LoginResponse, Participant } from '../interfaces/login-response.interface';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
-import { RegisterResponse } from '../interfaces/register-response.interface';
+import { HttpClient } from '@angular/common/http';
+import { inject, Injectable } from '@angular/core';
+import { HeaderHelper } from '../helpers/header-helper';
+import { environment } from 'src/environments/environment';
 import { Register } from '../interfaces/register.interface';
+import { RegisterResponse } from '../interfaces/register-response.interface';
+import { LoginResponse, Participant } from '../interfaces/login-response.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -17,9 +18,7 @@ export class LoginService {
   private http = inject(HttpClient);
 
   public login(numberUser: string, password: string, campaign: string = '4u'): Observable<LoginResponse> {
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${this.env.apiKey}`
-    });
+    const headers = HeaderHelper.getHeaders();
 
     const body = {
       campaign: campaign,
@@ -34,10 +33,7 @@ export class LoginService {
   }
 
   public register(participant: Register) {
-
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${this.env.apiKey}`
-    });
+    const headers = HeaderHelper.getHeaders();
 
     const body = {
       campaign: participant.campaign,
@@ -60,9 +56,7 @@ export class LoginService {
 
   public getUserInfo(): Participant | null {
     const user = localStorage.getItem('user');
-    if (user) {
-      return JSON.parse(user);
-    }
+    if (user) return JSON.parse(user);
     return null;
   }
 }
