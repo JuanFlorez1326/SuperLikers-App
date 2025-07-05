@@ -1,0 +1,48 @@
+.login-container {
+    
+    width: 90%;
+    max-width: 500px;
+    margin: auto;
+
+    .login-logo {
+        margin: 5px auto;
+    }
+
+    form {
+        margin-top: 15px;
+
+        input {
+            outline: none;
+            border: none;
+            width: 100%;
+            padding: 16px;
+            border-radius: 5px;
+            background-color: #0A2440;
+            border: 1px solid #385CAD;
+            margin: 5px 0px 20px 0px;
+        }
+
+        .actions-login {
+
+            ion-button {
+                --padding: 12px 20px;
+                --border: none;
+                --border-radius: 50px;
+                --ripple-color: #134A85;
+                text-transform: none;
+                font-weight: 700;
+                font-size: 16px;
+            }
+
+            ion-button, .btn-login {
+                --background: #7894D2;
+                --color: #000;
+            }
+
+            ion-button, .btn-supervisor {
+                --background: #134A85;
+                --color: #FFF;
+            }
+        }
+    }
+}

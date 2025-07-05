@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { IonContent, IonCheckbox, IonButton, IonIcon } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { logoWhatsapp } from 'ionicons/icons';
-import { LoginService } from 'src/app/services/login.service';
+import { LoginService } from 'src/app/services/auth.service';
 import { LoginResponse } from 'src/app/interfaces/login-response.interface';
 import { Router, RouterLink } from '@angular/router';
 
@@ -22,6 +22,7 @@ export class LoginPage implements OnInit {
   private loginService = inject(LoginService);
 
   public loginForm!: FormGroup;
+  public msgForm: string = '';
 
   ngOnInit() {
     addIcons({ logoWhatsapp })
@@ -31,7 +32,7 @@ export class LoginPage implements OnInit {
   public initializeForm() {
     this.loginForm = this.fb.group({
       numberUser: ['', [ Validators.required, Validators.minLength(3) ]],
-      password: ['', [ Validators.required, Validators.minLength(6) ]],
+      password: ['', [ Validators.required, Validators.minLength(3) ]],
       termsAccepted: [false, Validators.requiredTrue],
       privacyAccepted: [false, Validators.requiredTrue]
     });
@@ -42,17 +43,16 @@ export class LoginPage implements OnInit {
       const { numberUser, password } = this.loginForm.value;
       this.loginService.login(numberUser, password).subscribe({
         next: (response: LoginResponse) => {
-          console.log('Login successful', response);
           localStorage.setItem('token', response.token);
           localStorage.setItem('user', JSON.stringify(response.participant));
           this.router.navigate(['/home']);
         },
         error: (error: any) => {
-          console.error('Login failed', error);
+          this.msgForm = error.error.message || 'Login failed. Please try again.';
         }
       });
     } else {
-      console.log('Form is invalid');
+      this.msgForm = 'Please fill in all required fields correctly.';
     }
   }
 }

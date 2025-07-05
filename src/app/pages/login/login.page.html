@@ -29,6 +29,12 @@
         </ion-checkbox>
       </div>
 
+      @if (msgForm) {
+        <div class="ion-text-center">
+          <span class="msg-form">{{ msgForm }}</span>
+        </div>
+      }
+
       <div class="ion-text-center actions-login">
         <ion-button type="submit" shape="round" expand="block" class="btn btn-login" [disabled]="loginForm.invalid">
           Iniciar sesión

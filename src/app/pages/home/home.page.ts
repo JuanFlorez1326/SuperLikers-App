@@ -11,7 +11,7 @@ import {
   IonItem,
   IonLabel
 } from '@ionic/angular/standalone';
-import { LoginService } from 'src/app/services/login.service';
+import { LoginService } from 'src/app/services/auth.service';
 import { Participant } from 'src/app/interfaces/login-response.interface';
 import { UserMenuComponent } from "../../components/user-menu/user-menu.component";
 import { KpiCardComponent } from "../../components/kpi-card/kpi-card.component";
@@ -33,7 +33,6 @@ export class HomePage implements OnInit {
 
   ngOnInit() {
     this.user.set(this.loginService.getUserInfo());
-    console.log('User info:', this.user());
   }
 
 }

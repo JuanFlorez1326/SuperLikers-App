@@ -5,9 +5,39 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">register</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="login-container">
+    <div class="ion-text-center login-logo">
+      <img src="assets/img/logo.png" alt="Logo">
+    </div>
+
+    <div class="ion-text-center">
+      <p><strong>¡Bienvenido/a Modelo Para Ganar!</strong></p>
+      <span>Ingresa tus datos:</span>
+    </div>
+
+    <form [formGroup]="registerForm" (submit)="onSubmit()">
+      <label class="ion-text-start">Email *</label>
+      <input placeholder="Email" formControlName="email"/>
+
+      <label>Nombre Completo *</label>
+      <input placeholder="Nombre Completo" formControlName="fullname"/>
+
+      <label>Codigo de Cliente *</label>
+      <input placeholder="Codigo de Cliente" formControlName="code"/>
+
+      <div class="ion-text-center actions-login">
+        <ion-button type="submit" shape="round" expand="block" class="btn btn-login" [disabled]="registerForm.invalid">
+          Registrarme
+        </ion-button>
+      </div>
+
+      <div class="ion-text-center">
+        @if (msgForm) {
+          <p class="msg-success">{{ msgForm }}</p>
+        } @else {
+          <p class="msg-error">Por favor, completa todos los campos requeridos.</p>
+        }
+      </div>
+    </form>
+  </div>
 </ion-content>

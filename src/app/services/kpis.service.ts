@@ -3,7 +3,7 @@ import { inject, Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { KpisResponse } from '../interfaces/kpis-response.interface';
 import { Observable } from 'rxjs';
-import { LoginService } from './login.service';
+import { LoginService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
