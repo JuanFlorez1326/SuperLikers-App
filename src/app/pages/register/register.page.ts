@@ -1,4 +1,3 @@
-import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/services/auth.service';
@@ -17,7 +16,6 @@ import { IonContent, IonHeader, IonTitle, IonToolbar, IonButton } from '@ionic/a
     IonHeader,
     IonTitle,
     IonToolbar,
-    RouterLink,
     IonButton,
     CommonModule,
     ReactiveFormsModule,

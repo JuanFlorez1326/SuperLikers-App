@@ -1,4 +1,3 @@
-import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { ParticipantsService } from 'src/app/services/participants.service';
@@ -18,7 +17,6 @@ import { ParticipantCardComponent } from "../../components/participant-card/part
     IonTitle,
     IonToolbar,
     CommonModule,
-    RouterLink,
     BackArrowComponent,
     ParticipantCardComponent
   ]

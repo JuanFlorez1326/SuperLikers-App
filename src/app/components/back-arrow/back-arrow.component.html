@@ -1,4 +1,4 @@
 <div>
-  <ion-icon name="chevron-back-circle"></ion-icon>
-  <span>{{ title() }}</span>
+  <ion-icon [routerLink]="route()" name="chevron-back-circle"></ion-icon>
+  <span [routerLink]="route()">{{ title() }}</span>
 </div>
