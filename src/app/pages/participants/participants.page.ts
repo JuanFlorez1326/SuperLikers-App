@@ -1,8 +1,8 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardContent, IonCardTitle } from '@ionic/angular/standalone';
 import { RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { ParticipantsService } from 'src/app/services/participants.service';
+import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
 import { AllParticipants, ParticipantList } from 'src/app/interfaces/participants-response.interface';
 import { ParticipantCardComponent } from "../../components/participant-card/participant-card.component";
 
@@ -11,7 +11,15 @@ import { ParticipantCardComponent } from "../../components/participant-card/part
   templateUrl: './participants.page.html',
   styleUrls: ['./participants.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, RouterLink, ParticipantCardComponent]
+  imports: [ 
+    IonContent, 
+    IonHeader, 
+    IonTitle, 
+    IonToolbar, 
+    CommonModule, 
+    RouterLink, 
+    ParticipantCardComponent
+  ]
 })
 export class ParticipantsPage implements OnInit {
 

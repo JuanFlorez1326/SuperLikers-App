@@ -1,19 +1,27 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { IonContent, IonCheckbox, IonButton, IonIcon } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { logoWhatsapp } from 'ionicons/icons';
+import { CommonModule } from '@angular/common';
+import { Router, RouterLink } from '@angular/router';
+import { Component, inject, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/services/auth.service';
 import { LoginResponse } from 'src/app/interfaces/login-response.interface';
-import { Router, RouterLink } from '@angular/router';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { IonContent, IonCheckbox, IonButton, IonIcon } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
   standalone: true,
-  imports: [IonContent, CommonModule, IonCheckbox, IonButton, IonIcon, ReactiveFormsModule, RouterLink ]
+  imports: [
+    IonContent, 
+    IonCheckbox, 
+    IonButton, 
+    IonIcon, 
+    RouterLink,
+    CommonModule, 
+    ReactiveFormsModule 
+  ]
 })
 export class LoginPage implements OnInit {
 
@@ -29,16 +37,16 @@ export class LoginPage implements OnInit {
     this.initializeForm();
   }
 
-  public initializeForm() {
+  public initializeForm(): void {
     this.loginForm = this.fb.group({
       numberUser: ['', [ Validators.required, Validators.minLength(3) ]],
       password: ['', [ Validators.required, Validators.minLength(3) ]],
-      termsAccepted: [false, Validators.requiredTrue],
-      privacyAccepted: [false, Validators.requiredTrue]
+      termsAccepted: [false, [ Validators.requiredTrue ]],
+      privacyAccepted: [false, [ Validators.requiredTrue ]]
     });
   }
 
-  public onSubmit() {
+  public onSubmit(): void {
     if (this.loginForm.valid) {
       const { numberUser, password } = this.loginForm.value;
       this.loginService.login(numberUser, password).subscribe({

@@ -1,19 +1,29 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonButton } from '@ionic/angular/standalone';
 import { RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { Component, inject, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/services/auth.service';
 import { Register } from 'src/app/interfaces/register.interface';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonButton } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.page.html',
   styleUrls: ['./register.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, ReactiveFormsModule, RouterLink, IonButton]
+  imports: [
+    IonContent, 
+    IonHeader, 
+    IonTitle, 
+    IonToolbar, 
+    RouterLink, 
+    IonButton,
+    CommonModule, 
+    ReactiveFormsModule, 
+  ]
 })
 export class RegisterPage implements OnInit {
+
   private fb = inject(FormBuilder);
   private loginService = inject(LoginService);
 
@@ -24,7 +34,7 @@ export class RegisterPage implements OnInit {
     this.initializeForm();
   }
 
-  public initializeForm() {
+  public initializeForm(): void {
     this.registerForm = this.fb.group({
       email: ['', [ Validators.required, Validators.minLength(3), Validators.email ]],
       fullname: ['', [ Validators.required, Validators.minLength(3) ]],
@@ -32,7 +42,7 @@ export class RegisterPage implements OnInit {
     });
   }
 
-  public onSubmit() {
+  public onSubmit(): void {
     if (this.registerForm.valid) {
       const formData = this.registerForm.value;
 
