@@ -31,7 +31,7 @@ export class KpisService {
       }  
     }; 
 
-    return this.http.post<KpisResponse>(`${this.env.proxyUrl}${this.env.baseUrl}/entries/index`, body, { headers });
+    return this.http.post<KpisResponse>(`${this.env.baseUrl}/entries/index`, body, { headers });
   }
 
 }

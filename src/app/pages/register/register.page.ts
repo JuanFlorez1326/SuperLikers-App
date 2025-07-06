@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/services/auth.service';
 import { Register } from 'src/app/interfaces/register.interface';
+import { BackArrowComponent } from "../../components/back-arrow/back-arrow.component";
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonButton } from '@ionic/angular/standalone';
 
@@ -12,14 +13,15 @@ import { IonContent, IonHeader, IonTitle, IonToolbar, IonButton } from '@ionic/a
   styleUrls: ['./register.page.scss'],
   standalone: true,
   imports: [
-    IonContent, 
-    IonHeader, 
-    IonTitle, 
-    IonToolbar, 
-    RouterLink, 
+    IonContent,
+    IonHeader,
+    IonTitle,
+    IonToolbar,
+    RouterLink,
     IonButton,
-    CommonModule, 
-    ReactiveFormsModule, 
+    CommonModule,
+    ReactiveFormsModule,
+    BackArrowComponent
   ]
 })
 export class RegisterPage implements OnInit {
