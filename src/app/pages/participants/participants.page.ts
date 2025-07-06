@@ -1,7 +1,7 @@
-import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { ParticipantsService } from 'src/app/services/participants.service';
+import { BackArrowComponent } from "../../components/back-arrow/back-arrow.component";
 import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
 import { AllParticipants, ParticipantList } from 'src/app/interfaces/participants-response.interface';
 import { ParticipantCardComponent } from "../../components/participant-card/participant-card.component";
@@ -11,13 +11,13 @@ import { ParticipantCardComponent } from "../../components/participant-card/part
   templateUrl: './participants.page.html',
   styleUrls: ['./participants.page.scss'],
   standalone: true,
-  imports: [ 
-    IonContent, 
-    IonHeader, 
-    IonTitle, 
-    IonToolbar, 
-    CommonModule, 
-    RouterLink, 
+  imports: [
+    IonContent,
+    IonHeader,
+    IonTitle,
+    IonToolbar,
+    CommonModule,
+    BackArrowComponent,
     ParticipantCardComponent
   ]
 })

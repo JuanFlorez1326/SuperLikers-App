@@ -1,8 +1,8 @@
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { IonRange } from '@ionic/angular/standalone';
 import { Component, inject, signal } from '@angular/core';
 import { KpisService } from 'src/app/services/kpis.service';
-import { IonContent, IonRange  } from '@ionic/angular/standalone';
 import { Entry } from 'src/app/interfaces/kpis-response.interface';
 
 @Component({
@@ -11,7 +11,6 @@ import { Entry } from 'src/app/interfaces/kpis-response.interface';
   styleUrls: ['./kpi-card.component.scss'],
   imports: [
     IonRange,
-    IonContent, 
     FormsModule, 
     CommonModule
   ],

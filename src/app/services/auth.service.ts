@@ -29,7 +29,7 @@ export class LoginService {
       },
     };
 
-    return this.http.post<LoginResponse>(`${this.env.proxyUrl}${this.env.baseUrl}/microsite/sessions/login`, body, { headers });
+    return this.http.post<LoginResponse>(`${this.env.baseUrl}/microsite/sessions/login`, body, { headers });
   }
 
   public register(participant: Register) {
@@ -45,7 +45,7 @@ export class LoginService {
       }
     };
 
-    return this.http.post<RegisterResponse>(`${this.env.proxyUrl}${this.env.baseUrl}/participants`, body, { headers });
+    return this.http.post<RegisterResponse>(`${this.env.baseUrl}/participants`, body, { headers });
   }
 
   public logout(): void {

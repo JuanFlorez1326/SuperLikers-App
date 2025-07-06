@@ -9,4 +9,21 @@ h2 {
 
 p {
     color: #ada8a8;
+    cursor: pointer;
+}
+
+.menu-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .user-logo {
+        width: 100px;
+        padding: 10px;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
 }

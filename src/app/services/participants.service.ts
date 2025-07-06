@@ -24,6 +24,6 @@ export class ParticipantsService {
       }
     };
 
-    return this.http.post<AllParticipants>(`${this.env.proxyUrl}${this.env.baseUrl}/participants/index`, body, { headers })
+    return this.http.post<AllParticipants>(`${this.env.baseUrl}/participants/index`, body, { headers })
   }
 }
