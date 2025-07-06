@@ -1,0 +1,26 @@
+.submenu-container {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    padding: 7px;
+    background-color: #092340;
+    border-radius: 20px;
+    margin: 0px auto 15px;
+    max-width: 500px;
+
+    button, .active {
+        padding: 8px;
+        border-radius: 20px;
+        width: 35%;
+        border: none;
+        background-color: #092340;
+        color: #516c9e;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    .active {
+        background-color: #ffb805;
+        color: #000;
+    }
+}

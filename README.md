@@ -8,6 +8,8 @@
 
 Run `ionic serve` for a dev server. Navigate to `http://localhost:8100/`. The application will automatically reload if you change any of the source files.
 
+Wait a few seconds while the server starts automatically, that server is responsible for skipping the `cors` in the application.
+
 ## Install packages
 
 Run `npm install` to install all the necessary packages.

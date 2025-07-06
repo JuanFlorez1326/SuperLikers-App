@@ -1,59 +1,56 @@
-<ion-content>
+<div class="kpis-container">
 
-    <div class="kpis-container">
+    <div class="kpis-info">
+        <span class="kpi-title">Metas por volumen</span>
 
-        <div class="kpis-info">
-            <span class="kpi-title">Metas por volumen</span>
+        <span class="kpi-des-1">Estan son las principales metas por volumen que debes cumplir al mes.</span>
+        <span class="kpi-des-2">A medida que avanzas en cada una, vas sumando al porcentaje de cumplimiento total para obtener tu bonificación.</span>
 
-            <span class="kpi-des-1">Estan son las principales metas por volumen que debes cumplir al mes.</span>
-            <span class="kpi-des-2">A medida que avanzas en cada una, vas sumando al porcentaje de cumplimiento total para obtener tu bonificación.</span>
+        <ion-range aria-label="Total"  [min]="0" [max]="100" [value]="getKpiPercentage()" [pin]="true"></ion-range>
 
-            <ion-range aria-label="Total"  [min]="0" [max]="100" [value]="getKpiPercentage()" [pin]="true"></ion-range>
-
-            <div class="kpi-filter">
-                <span>Filtrar por:</span>
-                <select [(ngModel)]="selectedFilter">
-                    <option value="cartones">Cartones</option>
-                    <option value="hectolitros">Hectolitros</option>
-                </select>
-            </div>
-        </div>
-
-
-        <div class="kpis-indicators">
-            @if (kpis() && kpis()[4] && kpis()[4].data) {
-
-                <div class="indicator indicator-1">
-                    @if ( selectedFilter === 'cartones') {
-                        <p>{{ kpis()[4].data['volumen_meta_mes_cartones'] | number:'1.0-0' }}%</p>
-                    } @else {
-                        <p>{{ kpis()[4].data['volumen_meta_mes_hectolitros'] | number:'1.0-0' }}%</p>
-                    }
-
-                    <span>Volumen</span>
-                </div>
-
-                <div class="indicator indicator-2">
-                    @if ( selectedFilter === 'cartones') {
-                        <p>{{ kpis()[4].data['volumen_retornable_avance_actual_cartones'] | number:'1.0-0' }}%</p>
-                    } @else {
-                        <p>{{ kpis()[4].data['volumen_retornable_avance_actual_hectolitros'] | number:'1.0-0' }}%</p>
-                    }
-                    <span>Volumen Retornable</span>
-                </div>
-
-                <div class="indicator indicator-3">
-                    <p>{{ getAboveCoreBeyondBeerPercentage() }}%</p>
-                    <span>Above Core + Beyond Beer</span>
-                </div>
-
-                <div class="indicator indicator-4">
-                    <p class="percentage">
-                        {{ kpis()[4].data['marketplace_avance'] | number:'1.0-0' }}%
-                    </p>
-                    <span>Marketplate</span>
-                </div>
-            }
+        <div class="kpi-filter">
+            <span>Filtrar por:</span>
+            <select [(ngModel)]="selectedFilter">
+                <option value="cartones">Cartones</option>
+                <option value="hectolitros">Hectolitros</option>
+            </select>
         </div>
     </div>
-</ion-content>
+
+
+    <div class="kpis-indicators">
+        @if (kpis() && kpis()[4] && kpis()[4].data) {
+
+            <div class="indicator indicator-1">
+                @if ( selectedFilter === 'cartones') {
+                    <p>{{ kpis()[4].data['volumen_meta_mes_cartones'] | number:'1.0-0' }}%</p>
+                } @else {
+                    <p>{{ kpis()[4].data['volumen_meta_mes_hectolitros'] | number:'1.0-0' }}%</p>
+                }
+
+                <span>Volumen</span>
+            </div>
+
+            <div class="indicator indicator-2">
+                @if ( selectedFilter === 'cartones') {
+                    <p>{{ kpis()[4].data['volumen_retornable_avance_actual_cartones'] | number:'1.0-0' }}%</p>
+                } @else {
+                    <p>{{ kpis()[4].data['volumen_retornable_avance_actual_hectolitros'] | number:'1.0-0' }}%</p>
+                }
+                <span>Volumen Retornable</span>
+            </div>
+
+            <div class="indicator indicator-3">
+                <p>{{ getAboveCoreBeyondBeerPercentage() }}%</p>
+                <span>Above Core + Beyond Beer</span>
+            </div>
+
+            <div class="indicator indicator-4">
+                <p class="percentage">
+                    {{ kpis()[4].data['marketplace_avance'] | number:'1.0-0' }}%
+                </p>
+                <span>Marketplate</span>
+            </div>
+        }
+    </div>
+</div>

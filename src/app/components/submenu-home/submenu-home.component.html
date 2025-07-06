@@ -1,0 +1,9 @@
+<div class="submenu-container">
+  @for (button of buttons(); track button.name) {
+    <button
+      [class.active]="activeButton() === button.name"
+      (click)="setActiveButton(button.name)">
+      {{ button.name }}
+    </button>
+  }
+</div>
