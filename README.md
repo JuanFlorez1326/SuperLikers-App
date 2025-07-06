@@ -19,6 +19,7 @@ Run `ionic build --prod` to build the project. The build artifacts will be store
 To test the build you can do it using the Live Server extension of Visual Studio Code, enter the `www` path and click on Go Live.
 
 ## Build Mobile App
+
 First we need to create the android folder with the command `npx cap add android`.
 
 Then run the command `ionic capacitor open android` to open the `android` folder in Android Studio.
@@ -32,3 +33,5 @@ An additional, but not required, command is `ionic capacitor sync android`, whic
 ## Server To Bypass Cors
 
 Please wait a few seconds while the server starts automatically. This server is responsible for bypassing `cors` in the application both in development mode and during the mobile app build.
+
+Server for CORS: `https://server-superlikers.onrender.com`
