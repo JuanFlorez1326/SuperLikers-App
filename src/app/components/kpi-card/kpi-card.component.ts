@@ -1,15 +1,20 @@
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 import { Component, inject, signal } from '@angular/core';
 import { KpisService } from 'src/app/services/kpis.service';
 import { IonContent, IonRange  } from '@ionic/angular/standalone';
 import { Entry } from 'src/app/interfaces/kpis-response.interface';
-import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-kpi-card',
   templateUrl: './kpi-card.component.html',
   styleUrls: ['./kpi-card.component.scss'],
-  imports: [IonContent, FormsModule, CommonModule, IonRange ],
+  imports: [
+    IonRange,
+    IonContent, 
+    FormsModule, 
+    CommonModule
+  ],
 })
 export class KpiCardComponent {
 
@@ -26,7 +31,6 @@ export class KpiCardComponent {
     this.kpisService.getKpis().subscribe({
       next: (response) => {
         this.kpis.set(response.data.entries);
-        console.log(this.kpis());
       }, error: (error) => {
         console.error('Error fetching KPIs:', error);
       }

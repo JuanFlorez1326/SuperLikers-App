@@ -1,4 +1,4 @@
-import { Component, input, OnInit } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { Participant } from 'src/app/interfaces/login-response.interface';
 
 @Component({
