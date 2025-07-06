@@ -19,7 +19,8 @@ export const routes: Routes = [
   },
   {
     path: 'participants',
-    loadComponent: () => import('./pages/participants/participants.page').then( m => m.ParticipantsPage)
+    loadComponent: () => import('./pages/participants/participants.page').then( m => m.ParticipantsPage),
+    canActivate: [authGuard]
   },
   {
     path: '**',
